@@ -1,5 +1,15 @@
 package com.bookit.step_definitions;
 
+import java.util.concurrent.TimeUnit;
+
+import org.junit.Assert;
+import org.openqa.selenium.Keys;
+
+import com.bookit.pages.MapPage;
+import com.bookit.pages.SignInPage;
+import com.bookit.utilities.ConfigurationReader;
+import com.bookit.utilities.Driver;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -8,22 +18,40 @@ public class LoginStepDefintions {
 
 	@Given("the user is on the login page")
 	public void the_user_is_on_the_login_page() {
-		System.out.println("Opening login page");
+		// open browser and go to url
+		String url = ConfigurationReader.getProperty("url");
+		Driver.getDriver().get(url);
 	}
 
 	@When("the user logs in as a teacher")
 	public void the_user_logs_in_as_a_teacher() {
-		System.out.println("logging in as teacher");
+
+		String email = ConfigurationReader.getProperty("teacher_email");
+		String password = ConfigurationReader.getProperty("teacher_password");
+
+		SignInPage signInPage = new SignInPage();
+		signInPage.email.sendKeys(email);
+		signInPage.password.sendKeys(password + Keys.ENTER);
+
 	}
 
 	@Then("the user should be logged in")
 	public void the_user_should_be_logged_in() {
-		System.out.println("I am logged in");
+		Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		MapPage mapPage = new MapPage();
+		Assert.assertTrue(mapPage.map.isDisplayed());
+
 	}
 
 	@When("the user logs in as a team lead")
 	public void the_user_logs_in_as_a_team_lead() {
-		System.out.println("loggin in as team lead");
+
+		String email = ConfigurationReader.getProperty("team_leader_email");
+		String password = ConfigurationReader.getProperty("team_leader_password");
+
+		SignInPage signInPage = new SignInPage();
+		signInPage.email.sendKeys(email);
+		signInPage.password.sendKeys(password + Keys.ENTER);
 	}
 
 }

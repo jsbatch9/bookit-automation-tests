@@ -7,7 +7,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class) 
 @CucumberOptions(
-		tags= {"@login1, @login2", "not @login3"},
+		tags= "@login",
 		features = "src/test/resources/features",
 		glue = "com/bookit/step_definitions",
 		dryRun = false
