@@ -37,7 +37,6 @@ public class LoginStepDefintions {
 
 	@Then("the user should be logged in")
 	public void the_user_should_be_logged_in() {
-		Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		MapPage mapPage = new MapPage();
 		Assert.assertTrue(mapPage.map.isDisplayed());
 
