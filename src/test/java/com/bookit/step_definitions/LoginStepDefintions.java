@@ -1,7 +1,5 @@
 package com.bookit.step_definitions;
 
-import java.util.concurrent.TimeUnit;
-
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 
@@ -52,17 +50,17 @@ public class LoginStepDefintions {
 		signInPage.email.sendKeys(email);
 		signInPage.password.sendKeys(password + Keys.ENTER);
 	}
-	
+
 	@When("the user logs using {string} and {string}")
 	public void the_user_logs_using_and(String email, String password) {
 		SignInPage signInPage = new SignInPage();
 		signInPage.email.sendKeys(email);
 		signInPage.password.sendKeys(password + Keys.ENTER);
 	}
-	
+
 	@Then("there should be {int} rooms")
 	public void there_should_be_rooms(Integer int1) {
-	   System.out.println(int1);
+		System.out.println(int1);
 	}
 
 }

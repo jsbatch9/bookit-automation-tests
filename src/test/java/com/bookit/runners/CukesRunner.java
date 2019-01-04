@@ -7,10 +7,10 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class) 
 @CucumberOptions(
-		tags= "@login2",
+		tags= "@account",
 		features = "src/test/resources/features",
 		glue = "com/bookit/step_definitions",
-		dryRun = true
+		dryRun = false
 		)
 public class CukesRunner {
 
