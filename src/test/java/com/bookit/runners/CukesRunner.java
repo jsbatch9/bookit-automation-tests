@@ -10,7 +10,11 @@ import cucumber.api.junit.Cucumber;
 		tags= "@account",
 		features = "src/test/resources/features",
 		glue = "com/bookit/step_definitions",
-		dryRun = false
+		dryRun = false,
+		plugin = {
+				"json:target/cucumber.json"
+		}
+		
 		)
 public class CukesRunner {
 
