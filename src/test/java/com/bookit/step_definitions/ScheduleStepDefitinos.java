@@ -8,6 +8,8 @@ public class ScheduleStepDefitinos {
 	@When("go to my schedule")
 	public void go_to_my_schedule() {
 		System.out.println("going to my schedule");
+		
+		
 	}
 
 	@Then("I should be able to see the reservations for my team")
