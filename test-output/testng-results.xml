@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="4" total="5" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="232" started-at="2019-01-08T16:37:11Z" finished-at="2019-01-08T16:37:12Z">
+  <suite name="Default suite" duration-ms="234" started-at="2019-01-08T20:41:56Z" finished-at="2019-01-08T20:41:56Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="232" started-at="2019-01-08T16:37:11Z" finished-at="2019-01-08T16:37:12Z">
+    <test name="Default test" duration-ms="234" started-at="2019-01-08T20:41:56Z" finished-at="2019-01-08T20:41:56Z">
       <class name="com.bookit.tests.JDBCTest">
-        <test-method status="PASS" signature="PostGreSQL()[pri:0, instance:com.bookit.tests.JDBCTest@6a4f787b]" name="PostGreSQL" duration-ms="208" started-at="2019-01-08T16:37:11Z" finished-at="2019-01-08T16:37:12Z">
+        <test-method status="PASS" signature="testdb()[pri:0, instance:com.bookit.tests.JDBCTest@6a4f787b]" name="testdb" duration-ms="208" started-at="2019-01-08T20:41:56Z" finished-at="2019-01-08T20:41:56Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- PostGreSQL -->
+        </test-method> <!-- testdb -->
       </class> <!-- com.bookit.tests.JDBCTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

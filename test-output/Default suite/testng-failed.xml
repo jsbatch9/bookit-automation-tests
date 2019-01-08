@@ -5,7 +5,7 @@
     <classes>
       <class name="com.bookit.tests.JDBCTest">
         <methods>
-          <include name="PostGreSQL"/>
+          <include name="DBUtilDynamic"/>
         </methods>
       </class> <!-- com.bookit.tests.JDBCTest -->
     </classes>

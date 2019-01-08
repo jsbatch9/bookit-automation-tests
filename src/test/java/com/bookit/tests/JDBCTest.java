@@ -14,6 +14,8 @@ import java.util.Map;
 
 import org.testng.annotations.Test;
 
+import com.bookit.utilities.DBUtils;
+
 public class JDBCTest {
   
 	String dbUrl = "jdbc:postgresql://localhost:5432/hr";
@@ -27,8 +29,8 @@ public class JDBCTest {
 		ResultSet resultset = statement.executeQuery("Select * from countries");
 		
 		// next method -> move pointer to next row
-//		resultset.next();
-//		System.out.println(resultset.getString(1)+"-"+resultset.getString("country_name")+"-"+resultset.getInt(3));
+		resultset.next();
+		System.out.println(resultset.getString(1)+"-"+resultset.getString("country_name")+"-"+resultset.getInt(3));
 
 //		while(resultset.next()) {
 //			System.out.println(resultset.getString(1)+"-"+resultset.getString("country_name")+"-"+resultset.getInt(3));
@@ -108,12 +110,12 @@ public class JDBCTest {
 	}
 	
 	
-	@Test
+	@Test(enabled=false)
 	public void DBUtil() throws SQLException {
 		Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
 		Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);;
 		ResultSet resultset = statement.executeQuery("SELECT first_name,last_name,salary,job_id FROM employees\n" + 
-				"LIMIT 5;");
+				"LIMIT 5");
 		
 		//database metadata(create object)
 		DatabaseMetaData dbMetadata =connection.getMetaData();
@@ -129,12 +131,12 @@ public class JDBCTest {
 		
 		//point the first row
 		resultset.next();
-		
+	
 		//key is column name, value is value of that column
-		row1.put("first_name", "Steven");
-		row1.put("last_name", "King");
-		row1.put("Salary", 24000);
-		row1.put("Job_id", "AD_PRES");
+		row1.put("first_name", resultset.getObject("first_name"));
+		row1.put("last_name", resultset.getObject("last_name"));
+		row1.put("Salary", resultset.getObject("salary"));
+		row1.put("Job_id", resultset.getObject("job_id"));
 		
 		//verify map is keeping all values 
 		System.out.println(row1.toString());
@@ -143,11 +145,81 @@ public class JDBCTest {
 		queryData.add(row1);
 		
 		System.out.println(queryData.get(0).get("first_name"));
+		//--------------ADDING ONE MORE ROW----------
+		Map<String,Object> row2 = new HashMap<>();
 		
+		resultset.next();
 		
+		row2.put("first_name", resultset.getObject("first_name"));
+		row2.put("last_name", resultset.getObject("last_name"));
+		row2.put("Salary", resultset.getObject("salary"));
+		row2.put("Job_id", resultset.getObject("job_id"));
+		
+		queryData.add(row2);
+
+		System.out.println("First Row: "+queryData.get(0).toString());
+		System.out.println("Second Row: "+queryData.get(1).toString());
+
 		resultset.close();
 		statement.close();
 		connection.close();
 	}
+	
+
+	@Test
+	public void DBUtilDynamic() throws SQLException {
+		Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+		Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);;
+		ResultSet resultset = statement.executeQuery("Select * From countries");
+		
+		//database metadata(create object)
+		DatabaseMetaData dbMetadata =connection.getMetaData();
+				
+		//resultset metadata create object
+		ResultSetMetaData rsMetadata = resultset.getMetaData();
+		//----------DYNAMIC LIST FOR EVERY QUERY----------------
+		
+		//Main List
+		List<Map<String,Object>> queryData = new ArrayList<>();
+		//number of columns
+		int colCount = rsMetadata.getColumnCount();
+		
+			while(resultset.next()) {
+			//creating map to adding each row inside 
+			Map<String,Object> row = new HashMap<>();
+				
+			
+				for(int i=1;i<=colCount;i++) {
+					row.put(rsMetadata.getColumnName(i), resultset.getObject(i));
+				}
+			
+						
+			//adding each row map to list 	
+			queryData.add(row);
+			
+			}
+			
+			//printing first 4 row
+			System.out.println(queryData.get(0));
+			System.out.println(queryData.get(1));
+			System.out.println(queryData.get(2));
+			System.out.println(queryData.get(3));
+			
+			//print each country name from the list 
+			for(Map<String,Object> map:queryData) {
+				
+				System.out.println(map.get("country_id"));
+			}
+			
+			
+		resultset.close();
+		statement.close();
+		connection.close();
+		
+		
+	}
+	
+
+	
 	
 }
