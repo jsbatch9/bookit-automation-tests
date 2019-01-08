@@ -20,17 +20,12 @@ public class DBUtils {
 
 	public static void createConnection() {
 
-//		String url = ConfigurationReader.getProperty("qa1_db_host");
-//		String user = ConfigurationReader.getProperty("qa1_db_username");
-//		String password = ConfigurationReader.getProperty("qa1_db_password");
-//		
-
-		String dbUrl = "jdbc:postgresql://localhost:5432/hr";
-		String dbUsername = "postgres";
-		String dbPassword = "abc";
 		
+	
 		try {
-			connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+			connection = DriverManager.getConnection(ConfigurationReader.getProperty("dbUrl"),
+										ConfigurationReader.getProperty("dbUsername"),
+										ConfigurationReader.getProperty("dbPassword"));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

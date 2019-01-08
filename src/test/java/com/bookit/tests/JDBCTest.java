@@ -219,7 +219,44 @@ public class JDBCTest {
 		
 	}
 	
+	
+	@Test
+	public void useDBUtils() {
+		
+		//create connection with given information 
+		DBUtils.createConnection();
+		
+		String query = "SELECT first_name,last_name,salary,job_id FROM employees";
+		
+		List<Map<String,Object>> queryData = DBUtils.getQueryResultMap(query);
+			
+		//print first row salary value 
+		
+		System.out.println(queryData.get(0).get("salary"));
+		
+		//close connection 
+		DBUtils.destroy();
+		
+	}
 
+	@Test
+	public void useDBUtils2() {
+		
+		//create connection with given information 
+		DBUtils.createConnection();
+		
+		String query = "SELECT first_name,last_name,salary,job_id FROM employees where employee_id = 107";
+		
+		
+		Map<String,Object> onerowresult = DBUtils.getRowMap(query);
+		
+		//print first row salary value 
+		System.out.println(onerowresult.get("job_id"));
+		
+		//close connection 
+		DBUtils.destroy();
+		
+	}
 	
 	
 }
