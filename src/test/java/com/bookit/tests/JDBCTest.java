@@ -82,6 +82,7 @@ public class JDBCTest {
 		System.out.println("Database Product Version"+ dbMetadata.getDatabaseProductVersion());
 		//-----------------
 		
+		
 		//resultset metadata create object
 		ResultSetMetaData rsMetadata = resultset.getMetaData();
 		

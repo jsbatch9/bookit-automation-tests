@@ -18,4 +18,7 @@ public class SignInPage {
 	@FindBy(name = "password")
 	public WebElement password;
 	
+	@FindBy(xpath = "//button[.='sign in']")
+	public WebElement signInButton;
+	
 }
