@@ -10,7 +10,7 @@ import cucumber.api.junit.Cucumber;
 		tags= "@temp",
 		features = "src/test/resources/features",
 		glue = "com/bookit/step_definitions",
-		dryRun = false,
+		dryRun = true,
 		plugin = {
 				"json:target/cucumber.json",
 				
