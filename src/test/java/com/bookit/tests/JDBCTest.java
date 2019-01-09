@@ -247,8 +247,7 @@ public class JDBCTest {
 		DBUtils.createConnection();
 		
 		String query = "SELECT first_name,last_name,salary,job_id FROM employees where employee_id = 107";
-		
-		
+				
 		Map<String,Object> onerowresult = DBUtils.getRowMap(query);
 		
 		//print first row salary value 
