@@ -82,6 +82,7 @@ public class JDBCTest {
 		System.out.println("Database Product Version"+ dbMetadata.getDatabaseProductVersion());
 		//-----------------
 		
+		
 		//resultset metadata create object
 		ResultSetMetaData rsMetadata = resultset.getMetaData();
 		
@@ -246,8 +247,7 @@ public class JDBCTest {
 		DBUtils.createConnection();
 		
 		String query = "SELECT first_name,last_name,salary,job_id FROM employees where employee_id = 107";
-		
-		
+				
 		Map<String,Object> onerowresult = DBUtils.getRowMap(query);
 		
 		//print first row salary value 
