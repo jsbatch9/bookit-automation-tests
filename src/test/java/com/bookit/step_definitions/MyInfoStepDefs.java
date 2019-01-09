@@ -72,7 +72,9 @@ public class MyInfoStepDefs {
 		System.out.println(actualRole);
 		
 		
-		// compare UI and DATABASE values	
+		// compare UI and DATABASE values
+		
+		
 		Assert.assertEquals(actualFullName, expectedFullname);
 		Assert.assertEquals(actualRole, expectedRole);
 
