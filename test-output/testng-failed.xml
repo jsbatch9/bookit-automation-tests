@@ -5,7 +5,7 @@
     <classes>
       <class name="com.bookit.tests.APIDay2">
         <methods>
-          <include name="testWithJSONtoMap"/>
+          <include name="regionTaskV3"/>
         </methods>
       </class> <!-- com.bookit.tests.APIDay2 -->
     </classes>

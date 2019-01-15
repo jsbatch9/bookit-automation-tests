@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="4" total="5" passed="1">
+<testng-results skipped="0" failed="0" ignored="8" total="9" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="1129" started-at="2019-01-15T17:50:22Z" finished-at="2019-01-15T17:50:23Z">
+  <suite name="Default suite" duration-ms="1641" started-at="2019-01-15T20:35:55Z" finished-at="2019-01-15T20:35:57Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="1129" started-at="2019-01-15T17:50:22Z" finished-at="2019-01-15T17:50:23Z">
+    <test name="Default test" duration-ms="1641" started-at="2019-01-15T20:35:55Z" finished-at="2019-01-15T20:35:57Z">
       <class name="com.bookit.tests.APIDay2">
-        <test-method status="PASS" signature="testWithJSONtoMap()[pri:0, instance:com.bookit.tests.APIDay2@3abbfa04]" name="testWithJSONtoMap" duration-ms="1111" started-at="2019-01-15T17:50:22Z" finished-at="2019-01-15T17:50:23Z">
+        <test-method status="PASS" signature="employeesWithParams()[pri:0, instance:com.bookit.tests.APIDay2@57fffcd7]" name="employeesWithParams" duration-ms="1625" started-at="2019-01-15T20:35:55Z" finished-at="2019-01-15T20:35:57Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testWithJSONtoMap -->
+        </test-method> <!-- employeesWithParams -->
       </class> <!-- com.bookit.tests.APIDay2 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

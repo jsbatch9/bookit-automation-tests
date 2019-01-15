@@ -160,7 +160,94 @@ public class APIDay2 {
 		  
 	  }
 	  
-	     
+	  
+	  @Test
+	  public void convertJSONtoListofMaps() {
+		  
+		  Response response = given().accept(ContentType.JSON)
+				  .when().get(baseurl+"/departments");
+		  
+		  JsonPath json = response.jsonPath();
+		 
+		  //we are getting JSON response and assign to list of maps 
+		 List<Map> result = json.getList("items",Map.class);
+		 
+		 String actualDepartmentName = (String) result.get(4).get("department_name");
+		 String expectedDepartmentName = "Shipping";
+		 
+		 //compare expected and actual department names
+		 assertEquals(actualDepartmentName, expectedDepartmentName);
+		 
+		 //verify department id 
+		
+		 //Umid's code 
+		 int actDepID= (int) result.get(4).get("department_id");
+		 int ExDepID= 50;
+		 assertEquals(actDepID,ExDepID);
+		 
+		 
+	  }
+	  
+	  
+	  //TASK
+	  /*Given Content type is JSON
+	   * And Limit is 10
+	   * When I send the GET request to url/regions
+	   * the status code must be 200
+	   * The I should see following data
+	   * 		1 Europe
+	   * 		2 Americas
+	   * 		3 Asia
+	   * 		4 Middle East and Africa
+	   */
+	  
+	  @Test 
+	  public void regionTaskV1() {
+		  
+		  given().accept(ContentType.JSON).and().params("limit",10)
+		  .when().get(baseurl+"/regions").then().statusCode(200).and()
+		  .assertThat().body("items.region_name", Matchers.hasItems("Europe","Americas","Asia","Middle East and Africa"));		  
+		  
+	  }
+	  
+	  @Test
+	  public void regionTaskV2() {
+		  
+		  Response response = given().accept(ContentType.JSON).and().params("limit",10)
+				  .when().get(baseurl+"/regions");
+		  
+		  JsonPath json = response.jsonPath();
+		  
+		  //status code check
+		  assertEquals(response.statusCode(), 200);
+		 
+		  //region verify
+		  assertEquals(json.getString("items[0].region_name"), "Europe");
+		  assertEquals(json.getString("items[1].region_name"), "Americas");
+		  assertEquals(json.getString("items[2].region_name"), "Asia");
+		  assertEquals(json.getString("items[3].region_name"), "Middle East and Africa");  
+		  
+	  }
+	   
+	  @Test
+	  public void regionTaskV3() {
+		  Response response = given().accept(ContentType.JSON).and().params("limit",10)
+				  .when().get(baseurl+"/regions");
+		  
+		  JsonPath json = response.jsonPath();
+		  
+		  //status code check
+		  assertEquals(response.statusCode(), 200);
+		 
+		  //JSON into list of maps
+		  List<Map> result=json.getList("items",Map.class);
+		  
+		 assertEquals(result.get(0).get("region_name"), "Europe");
+		 assertEquals(result.get(1).get("region_name"), "Americas");
+		 assertEquals(result.get(2).get("region_name"), "Asia");
+		 assertEquals(result.get(3).get("region_name"), "Middle East and Africa");	  
+		  
+	  }
 }
 
 
