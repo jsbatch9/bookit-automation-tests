@@ -102,7 +102,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.bookit.tests.JDBCTest" hash-for-method="useDBUtils2">useDBUtils2</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.bookit.tests.APIDay2" hash-for-method="testWithJSONtoMap">testWithJSONtoMap</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -120,14 +120,14 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.bookit.tests.JDBCTest</span>
+              <span class="class-name">com.bookit.tests.APIDay2</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="useDBUtils2">
-                  </a> <!-- useDBUtils2 -->
-                  <span class="method-name">useDBUtils2</span>
+                  <a name="testWithJSONtoMap">
+                  </a> <!-- testWithJSONtoMap -->
+                  <span class="method-name">testWithJSONtoMap</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -135,7 +135,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/jp/ypncyvk97dn177lsmh67jcqm0000gp/T/testng-eclipse-273214417/testng-customsuite.xml</span>
+            <span class="header-content">/private/var/folders/jp/ypncyvk97dn177lsmh67jcqm0000gp/T/testng-eclipse--500901544/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -144,11 +144,11 @@
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
   &lt;test thread-count=&quot;5&quot; verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.bookit.tests.JDBCTest&quot;&gt;
+      &lt;class name=&quot;com.bookit.tests.APIDay2&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;useDBUtils2&quot;/&gt;
+          &lt;include name=&quot;testWithJSONtoMap&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- com.bookit.tests.JDBCTest --&gt;
+      &lt;/class&gt; &lt;!-- com.bookit.tests.APIDay2 --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -190,14 +190,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'useDBUtils2')
-data.setCell(0, 2, 'com.bookit.tests.JDBCTest')
-data.setCell(0, 3, 109);
+data.setCell(0, 1, 'testWithJSONtoMap')
+data.setCell(0, 2, 'com.bookit.tests.APIDay2')
+data.setCell(0, 3, 1111);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 109 ms</span>
+              <span class="suite-total-time">Total running time: 1 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -212,21 +212,19 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">5 ignored methods</span>
+            <span class="header-content">4 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">com.bookit.tests.JDBCTest</span>
+              <span class="ignored-class-name">com.bookit.tests.APIDay2</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">JDBCMetaData</span>
+                <span class="ignored-method-name">testJsonPathWithList</span>
                 <br/>
-                <span class="ignored-method-name">DBUtilDynamic</span>
+                <span class="ignored-method-name">employeesWithParams</span>
                 <br/>
-                <span class="ignored-method-name">PostGreSQL</span>
+                <span class="ignored-method-name">testWithJsonPath</span>
                 <br/>
-                <span class="ignored-method-name">useDBUtils</span>
-                <br/>
-                <span class="ignored-method-name">DBUtil</span>
+                <span class="ignored-method-name">testWithPathParams</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -238,9 +236,9 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.bookit.tests.JDBCTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.bookit.tests.APIDay2</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">useDBUtils2</span>
+                <span class="method-name">testWithJSONtoMap</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->

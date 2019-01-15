@@ -3,12 +3,15 @@ package com.bookit.tests;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import java.util.List;
+
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.*;
@@ -155,6 +158,8 @@ public class APIDay1 {
 		.and().body("items.region_name", Matchers.hasItems("Americas","Middle East and Africa"));	
 		
 	}
+			
+		
 		
 }
 
