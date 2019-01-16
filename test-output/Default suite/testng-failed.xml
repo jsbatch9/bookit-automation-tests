@@ -5,7 +5,7 @@
     <classes>
       <class name="com.bookit.tests.APIDay3">
         <methods>
-          <include name="regionPOSTv2"/>
+          <include name="CountryDELETE"/>
         </methods>
       </class> <!-- com.bookit.tests.APIDay3 -->
     </classes>
