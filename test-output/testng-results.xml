@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="8" total="9" passed="1">
+<testng-results skipped="0" failed="0" ignored="2" total="3" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="1641" started-at="2019-01-15T20:35:55Z" finished-at="2019-01-15T20:35:57Z">
+  <suite name="Default suite" duration-ms="2477" started-at="2019-01-16T15:56:00Z" finished-at="2019-01-16T15:56:02Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="1641" started-at="2019-01-15T20:35:55Z" finished-at="2019-01-15T20:35:57Z">
-      <class name="com.bookit.tests.APIDay2">
-        <test-method status="PASS" signature="employeesWithParams()[pri:0, instance:com.bookit.tests.APIDay2@57fffcd7]" name="employeesWithParams" duration-ms="1625" started-at="2019-01-15T20:35:55Z" finished-at="2019-01-15T20:35:57Z">
+    <test name="Default test" duration-ms="2477" started-at="2019-01-16T15:56:00Z" finished-at="2019-01-16T15:56:02Z">
+      <class name="com.bookit.tests.APIDay3">
+        <test-method status="PASS" signature="regionPOSTv3()[pri:0, instance:com.bookit.tests.APIDay3@3abbfa04]" name="regionPOSTv3" duration-ms="2459" started-at="2019-01-16T15:56:00Z" finished-at="2019-01-16T15:56:02Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- employeesWithParams -->
-      </class> <!-- com.bookit.tests.APIDay2 -->
+        </test-method> <!-- regionPOSTv3 -->
+      </class> <!-- com.bookit.tests.APIDay3 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

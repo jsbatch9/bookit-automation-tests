@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.bookit.tests.APIDay2">
+      <class name="com.bookit.tests.APIDay3">
         <methods>
-          <include name="regionTaskV3"/>
+          <include name="regionPOSTv2"/>
         </methods>
-      </class> <!-- com.bookit.tests.APIDay2 -->
+      </class> <!-- com.bookit.tests.APIDay3 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
