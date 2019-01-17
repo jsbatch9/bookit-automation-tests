@@ -2,15 +2,15 @@
 <testng-results skipped="0" failed="0" ignored="7" total="8" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="243" started-at="2019-01-16T17:52:47Z" finished-at="2019-01-16T17:52:48Z">
+  <suite name="Default suite" duration-ms="1428" started-at="2019-01-16T18:05:46Z" finished-at="2019-01-16T18:05:48Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="243" started-at="2019-01-16T17:52:47Z" finished-at="2019-01-16T17:52:48Z">
+    <test name="Default test" duration-ms="1428" started-at="2019-01-16T18:05:46Z" finished-at="2019-01-16T18:05:48Z">
       <class name="com.bookit.tests.APIDay3">
-        <test-method status="PASS" signature="jacksonExample()[pri:0, instance:com.bookit.tests.APIDay3@6500df86]" name="jacksonExample" duration-ms="218" started-at="2019-01-16T17:52:48Z" finished-at="2019-01-16T17:52:48Z">
+        <test-method status="PASS" signature="countryPOST()[pri:0, instance:com.bookit.tests.APIDay3@6500df86]" name="countryPOST" duration-ms="1407" started-at="2019-01-16T18:05:46Z" finished-at="2019-01-16T18:05:48Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- jacksonExample -->
+        </test-method> <!-- countryPOST -->
       </class> <!-- com.bookit.tests.APIDay3 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

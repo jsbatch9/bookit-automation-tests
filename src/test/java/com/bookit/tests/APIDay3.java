@@ -176,7 +176,6 @@ public class APIDay3 {
 				 .when().post(baseurl+"/countries/");
 		 
 		 //start testing
-		 
 		 //status code
 		 assertEquals(response.statusCode(), 201);
 		 

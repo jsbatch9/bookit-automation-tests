@@ -12,7 +12,7 @@ Scenario:
 	When user is on the my team page
 	Then team info should match with the database records "efewtrell8c@craigslist.org"
 
-@temp @db
+@db
 Scenario Outline: my self DDF
 	Given user logs in using "<email>" "<password>"
 	When user is on the my self page
