@@ -34,7 +34,7 @@ Scenario: three point verification (UI,DATABASE,API)
 	And I get the current user information from api
 	Then UI,API and Database user information must be match
 	
- @temp @db
+ @db
 Scenario Outline: three point verification (UI,DATABASE,API)
 	Given user logs in using "<username>" "<password>"
 	When user is on the my self page
