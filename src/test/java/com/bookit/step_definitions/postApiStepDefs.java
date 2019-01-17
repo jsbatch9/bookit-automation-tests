@@ -4,6 +4,7 @@ import com.bookit.pages.SelfPage;
 import com.bookit.utilities.BrowserUtils;
 import com.bookit.utilities.ConfigurationReader;
 import com.bookit.utilities.DBUtils;
+import com.github.javafaker.Faker;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -23,6 +24,8 @@ public class postApiStepDefs {
 	
 	String token;
 	Response res;
+	String fakeFirstname;
+	String fakeLastname;
 	
 	@Given("I logged BookIT api as a student")
 	public void i_logged_BookIT_api_as_a_student() {
@@ -53,17 +56,25 @@ public class postApiStepDefs {
 		//url for sending post request
 		String url = ConfigurationReader.getProperty("qa1_baseurl")+"/students/student";
 		
+		//create Faker object
+		Faker faker = new Faker();
+		fakeFirstname = faker.name().firstName();
+		fakeLastname = faker.name().lastName();
+		String fakeEmail = faker.internet().emailAddress();
+		System.out.println(fakeEmail);
+		
+		
 		//create params for new user information
 		Map<String,String> postParams = new HashMap<>();
 		
-		postParams.put("first-name", "dami");
-        postParams.put("last-name", "Mapam");
-        postParams.put("email", "wcef1ewasd@gmail.com");
+		postParams.put("first-name", fakeFirstname);
+        postParams.put("last-name",fakeLastname);
+        postParams.put("email",fakeEmail);
         postParams.put("password", "terimapam");
-        postParams.put("role", "dami");
+        postParams.put("role", "teacher");
         postParams.put("batch-number", "8");
-        postParams.put("team-name", "dami");
-        postParams.put("campus-location", "dami");
+        postParams.put("team-name", "TheCrew");
+        postParams.put("campus-location", "VA");
 		
         res = given().accept(ContentType.JSON).header("Authorization",token).params(postParams)
         				.when().post(url);
@@ -87,5 +98,46 @@ public class postApiStepDefs {
 		
 		
 	}
+
+	@Given("I logged BookIT api as a teacher")
+	public void i_logged_BookIT_api_as_a_teacher() {
+		//get token url from configuration file and assign to new string variable 
+		String tokenurl = ConfigurationReader.getProperty("qa1_tokenurl");
+			
+			//create one map to keep query param information inside it 
+			Map<String,String> loginParams = new HashMap<>();
+			 loginParams.put("email", ConfigurationReader.getProperty("qa1_teacher_apiuser"));
+			 loginParams.put("password", ConfigurationReader.getProperty("qa1_teacher_apipassword"));
+			 
+			//send get request to get accessToken
+			 Response response = given().accept(ContentType.JSON).and().params(loginParams)
+					 .when().get(tokenurl);
+			
+			 //verify status code 
+			  assertEquals(response.statusCode(), 200);
+			  
+			  //convert response to json format 
+			  JsonPath json2 = response.jsonPath();
+			  //get token value from response JSON Body and assign to one variable 
+			  token = json2.getString("accessToken");
+	}
+	
+	@Then("I should get has been added to db message")
+	public void i_should_get_has_been_added_to_db_message() {
+	    
+		System.out.println(res.body().asString());
+		//status code 
+		assertEquals(res.statusCode(), 201);
+		
+		
+		String expectedMessage = "user "+fakeFirstname+" "+fakeLastname+" has been added to database.";
+		String actualMessage =res.body().asString();
+		
+		assertEquals(expectedMessage, actualMessage);
+		
+			
+		
+	}
+	
 
 }
