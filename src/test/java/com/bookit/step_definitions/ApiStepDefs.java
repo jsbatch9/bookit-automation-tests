@@ -1,5 +1,7 @@
 package com.bookit.step_definitions;
 
+import com.bookit.pages.SelfPage;
+import com.bookit.utilities.BrowserUtils;
 import com.bookit.utilities.ConfigurationReader;
 import com.bookit.utilities.DBUtils;
 
@@ -108,6 +110,65 @@ public class ApiStepDefs {
 		assertEquals(expectedLastName, actualLastName);
 		assertEquals(expectedRole, actualRole);
 
+		
+	}
+	
+	
+	@Then("UI,API and Database user information must be match")
+	public void ui_API_and_Database_user_information_must_be_match() {
+	    
+		 
+		//get your query 
+		String query = "SELECT id,firstname,lastname,role\n" + 
+				"FROM users\n" + 
+				"WHERE email ='"+email+"'";
+		
+		//send query to database get the result and assign java object
+		Map<String,Object> result = DBUtils.getRowMap(query);
+		
+		//-------------------UI-----------
+		SelfPage selfPage = new SelfPage();
+		
+		//wait until got the user information table
+		BrowserUtils.waitFor(3);
+
+		//getting values from UI and assigning to variables 
+		String actualUIFullName = selfPage.name.getText();
+		String actualUIRole = selfPage.role.getText();
+		
+				
+		//assign db information to expected variables
+		String expectedFirstName = (String) result.get("firstname");
+		String expectedLastName = (String) result.get("lastname");
+		String expectedRole = (String) result.get("role");
+		String expectedFullname =expectedFirstName+" "+expectedLastName;
+
+		//assign api information to actual variables
+		String actualID = json.getString("id");
+		String actualFirstName = json.getString("firstName");
+		String actualLastName = json.getString("lastName");
+		String actualRole = json.getString("role");
+		
+		//compare Database information against API information
+		assertEquals(result.get("id").toString(), actualID);
+		assertEquals(expectedFirstName, actualFirstName);
+		assertEquals(expectedLastName, actualLastName);
+		assertEquals(expectedRole, actualRole);
+
+		//UI TO API
+		
+		String apiFullname = actualFirstName+" "+actualLastName;
+		
+		assertEquals(actualUIFullName, apiFullname);
+		assertEquals(actualUIRole, actualRole);
+		
+		//DB to UI 
+		assertEquals(expectedFullname, actualUIFullName);
+		assertEquals(expectedRole, actualUIRole);
+
+		
+		
+		
 		
 	}
 
