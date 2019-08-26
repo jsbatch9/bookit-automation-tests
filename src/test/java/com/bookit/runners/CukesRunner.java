@@ -7,7 +7,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class) 
 @CucumberOptions(
-		tags= "@temp",
+		tags= "@smoke",
 		features = "src/test/resources/features",
 		glue = "com/bookit/step_definitions",
 		dryRun = false,
