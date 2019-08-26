@@ -28,5 +28,6 @@ public class SelfPage extends TopNavigationBar{
 	@FindBy(xpath = "(//*[@class='title is-6'])[5]")
 	public WebElement campus;
 }
-console.log("git practice");
+console.log("git practice adding");
 // add something
+// ok 
