@@ -29,4 +29,4 @@ public class SelfPage extends TopNavigationBar{
 	public WebElement campus;
 }
 console.log("git practice");
-console.log("git practice feature today");
+console.log("git practice feat");
